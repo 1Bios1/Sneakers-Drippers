@@ -1,0 +1,84 @@
+.drawer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.479);
+}
+.drawer__items {
+  overflow: auto;
+}
+.drawer__container {
+  position: absolute;
+  right: 0;
+  width: 385px;
+  height: 100%;
+  background: #FFFFFF;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  position: absolute;
+}
+.drawer .drawer-itm {
+  border: 1px solid rgba(0, 0, 0, 0.212);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.drawer .drawer-itm__name {
+  font-size: 14px;
+}
+.drawer .drawer-itm b {
+  font-size: 13px;
+}
+.drawer .drawer__bottom {
+  z-index: 10;
+  overflow: hidden;
+}
+.drawer .drawer__bottom .price h3,
+.drawer .drawer__bottom .price b {
+  margin: 0;
+}
+
+.greenbtn {
+  position: relative;
+  margin: 2% auto;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  background-color: #9DD458;
+  border-radius: 18px;
+  width: 325px;
+  height: 55px;
+}
+.greenbtn:hover .arrowRight {
+  transform: translateX(5px);
+}
+.greenbtn .arrowRight {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+.greenbtn .arrowLeft {
+  position: absolute;
+  left: 50px;
+}
+
+.dashed-line {
+  flex: 1;
+  border-bottom: 1px dashed rgba(119, 118, 118, 0.631372549);
+  height: 1px;
+  position: relative;
+  top: 5px;
+  margin: 0 8px;
+}
+
+.removeBtn {
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in-out;
+}
+.removeBtn:hover {
+  opacity: 1;
+  cursor: pointer;
+}

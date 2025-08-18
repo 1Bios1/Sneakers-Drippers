@@ -5,10 +5,34 @@ import 'macro-css'
 
 // Импорт компонентов и файлов(scss например) (Component imports and other files, scss, for example)
 import './index.scss'
-import Card from './components/card.jsx'
+import Card from './components/Card'
 import Header from './components/Header.jsx'
-import SearchBar from './components/SearchBar.jsx'
-import Drawer from './components/Drawer.jsx'
+import Search from './components/Search'
+import Drawer from './components/Drawer'
+
+const productsArr = [
+	{
+		name: 'Мужские Кроссовки Nike Blazer Mid Suede', 
+		price: 12999, 
+		imgURL:'../img/productsIMG/nike.jpg', 
+		isFavorite: true,
+		id: 1,
+	},
+	{
+		name: 'Мужские Кроссовки Nike Air Max 270', 
+		price: 10399, 
+		imgURL:'../img/productsIMG/2.jpg', 
+		isFavorite: false,
+		id: 2,
+	},
+	{
+		name: 'Мужские Кроссовки Nike Blazer Mid Suede', 
+		price: 8499, 
+		imgURL:'../img/productsIMG/3.jpg', 
+		isFavorite: false,
+		id: 3,
+	},
+]
 
 export default function App() {
     return (
@@ -20,22 +44,23 @@ export default function App() {
 
 			<div className="content">
 				<div className="content__container p-40">
-
 					<div className="d-flex justify-between align-center mb-40">
 						<h1>Все кроссовки</h1>
-						<SearchBar />
+						<Search />
 					</div>
 
 					<div className="content__products d-flex">
-
-						<Card name={'Мужские Кроссовки Nike Blazer Mid Suede'} price={'12 999 руб.'} imgURL={'../img/productsIMG/nike.jpg'} isFavorite={true}/>
-
-						<Card name={'Мужские Кроссовки Nike Air Max 270'} price={'8 999 руб.'} imgURL={'../img/productsIMG/4.jpg'} isFavorite={false}/>
-						
-						<Card name={'Мужские Кроссовки Nike Blazer Mid Suede'} price={'9 999 руб.'} imgURL={'../img/productsIMG/3.jpg'} isFavorite={false}/>
-
-						<Card name={'Кроссовки Puma X Aka Boku Future Rider'} price={'17 999 руб.'} imgURL={'../img/productsIMG/2.jpg'} isFavorite={true}/>
-						
+						{
+							productsArr.map((product) => {
+								return <Card 
+										name={product.name} 
+										price={product.price} 
+										imgURL={product.imgURL} 
+										isFavorite={product.isFavorite}
+										id={product.id}
+									/>
+							})
+						}
 					</div>
 				</div>
 			</div>

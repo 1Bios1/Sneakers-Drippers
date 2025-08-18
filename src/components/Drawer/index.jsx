@@ -1,4 +1,5 @@
 
+import './Drawer.scss'
 
 export default function Drawer() {
     return (
