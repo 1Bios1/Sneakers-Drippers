@@ -1,21 +1,29 @@
 
 
 import styles from './Card.module.scss'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { GlobalContext } from '../../contexts/GlobalContext'
 
-export default function Card({ name, price, imgURL, onAddItmToCart, onAddToFavorite, id, favorited = false, added }) {
+export default function Card({ name, price, imgURL, id }) {
+	const {favorites, cartItms, onAddToFavorite, onAddItmToCart} = useContext(GlobalContext)
 
-	const [isAdded, setAdded] = useState(added)
-	const [isFavorite, setIsFavorite] = useState(favorited)
+	const isAdded = cartItms.some(item => item.name === name)
+    const isFavorite = favorites.some(item => item.name === name)
 
-	function makeFavorite() {
-		onAddToFavorite({name, price, imgURL, id})
-		setIsFavorite(!isFavorite)
+	const makeFavorite = async () => {
+		try {
+			onAddToFavorite({id, name, price, imgURL})
+		} catch (error) {
+			alert(error)
+		}
 	}
 
-	function addToCart() {
-		onAddItmToCart({ name, price, imgURL, id})
-		setAdded(!isAdded)
+	const addToCart = async () => {
+		try {
+			onAddItmToCart({id, name, price, imgURL})
+		} catch (error) {
+			alert(error)
+		}
 	}
 
     return (

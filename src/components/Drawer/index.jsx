@@ -1,9 +1,12 @@
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
 import './Drawer.scss'
+import { GlobalContext } from '../../contexts/GlobalContext'
 
-export default function Drawer({ onCloseCart, cartItms, setCartItms }) {
+export default function Drawer() {
+
+	const { cartItms, setCartItms, setCartActive } = useContext(GlobalContext)
 
 	const [totalPrice, setTotalPrice] = useState(0);
 
@@ -32,7 +35,7 @@ export default function Drawer({ onCloseCart, cartItms, setCartItms }) {
 
 					<div className="mb-30 d-flex justify-between align-center">
 						<h2>Корзина</h2>
-						<img onClick={onCloseCart} className='removeBtn cu-p' src="../img/Remove.svg" alt="remove" />
+						<img onClick={() => setCartActive(false)} className='removeBtn cu-p' src="../img/Remove.svg" alt="remove" />
 					</div>
 
 					{
@@ -94,7 +97,7 @@ export default function Drawer({ onCloseCart, cartItms, setCartItms }) {
 										<h1>Корзина пуста</h1>
 										<p className='opacity-5'>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
 									</div>
-									<button onClick={onCloseCart} className='greenbtn d-flex flex-row justify-center align-center'>
+									<button onClick={() => setCartActive(false)} className='greenbtn d-flex flex-row justify-center align-center'>
 										Вернуться
 										<div className="arrowLeft">
 											<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">

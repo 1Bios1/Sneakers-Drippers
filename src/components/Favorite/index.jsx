@@ -2,8 +2,12 @@
 import styles from './Favorite.module.scss'
 import Card from '../Card'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../../contexts/GlobalContext'
+import { useContext } from 'react'
 
-export default function Favorite({ onAddItmToCart, onAddToFavorite, favorites, cartItms }) {
+export default function Favorite() {
+
+    const { favorites, onAddToFavorite, onAddItmToCart } = useContext(GlobalContext)
 
     return (
         <div className='p-40'>
@@ -20,8 +24,6 @@ export default function Favorite({ onAddItmToCart, onAddToFavorite, favorites, c
                                         key={itm.id}
                                         onAddItmToCart={(obj) => onAddItmToCart(obj)}
                                         onAddToFavorite={(obj) => onAddToFavorite(obj)}
-                                        favorited={favorites.some(itm => Number(itm.id) === Number(itm.id))}
-                                        added={cartItms.some(itm => Number(itm.id) === Number(itm.id))}
                                         {...itm}
                                     />
                                 ) 

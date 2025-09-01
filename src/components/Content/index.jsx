@@ -1,10 +1,14 @@
 
 import Card from '../Card'
 import Search from '../Search'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { GlobalContext } from '../../contexts/GlobalContext'
 
 
-export default function Content({ onAddToFavorite, onAddItmToCart, products, favorites, cartItms }) {
+
+export default function Content() {
+
+    const { products, onAddToFavorite, onAddItmToCart } = useContext(GlobalContext)
 
     const [searchValue, setSearchValue] = useState('')
 
@@ -30,8 +34,6 @@ export default function Content({ onAddToFavorite, onAddItmToCart, products, fav
                                         key={product.id}
                                         onAddItmToCart={(obj) => onAddItmToCart(obj)}
                                         onAddToFavorite={(obj) => onAddToFavorite(obj)}
-                                        favorited={favorites.some(itm => Number(itm.id) === Number(product.id))}
-                                        added={cartItms.some(itm => Number(itm.id) === Number(product.id))}
                                         {...product}
                                     />
                                 ) 
