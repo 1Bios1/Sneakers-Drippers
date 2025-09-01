@@ -39,6 +39,10 @@
   margin: 0;
 }
 
+.drawer-empty .text {
+  text-align: center;
+}
+
 .greenbtn {
   position: relative;
   margin: 2% auto;
@@ -54,6 +58,9 @@
 .greenbtn:hover .arrowRight {
   transform: translateX(5px);
 }
+.greenbtn:hover .arrowLeft {
+  transform: translateX(-5px);
+}
 .greenbtn .arrowRight {
   position: absolute;
   right: 30px;
@@ -62,7 +69,9 @@
 }
 .greenbtn .arrowLeft {
   position: absolute;
-  left: 50px;
+  top: 20px;
+  left: 30px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .dashed-line {

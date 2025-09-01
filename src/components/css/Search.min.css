@@ -1,1 +1,1 @@
-.search{display:flex;flex-direction:row;align-items:center;border:1px solid rgba(189,189,189,.356);border-radius:8px;padding:8px}.search input{border:0}.search:hover{border:1px solid rgba(189,189,189,.952)}
+.search{position:relative;display:flex;flex-direction:row;align-items:center;border:1px solid rgba(189,189,189,.356);border-radius:8px;padding:8px}.search input{border:0}.search .clear{width:18px;height:18px;position:absolute;right:10px;top:10px}.search:hover{border:1px solid rgba(189,189,189,.952)}

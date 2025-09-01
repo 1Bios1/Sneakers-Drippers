@@ -1,20 +1,35 @@
 
-import styles from './Card.module.scss'
 
-export default function Card({ name, price, imgURL, isFavorite, id }) {
+import styles from './Card.module.scss'
+import { useState } from 'react'
+
+export default function Card({ name, price, imgURL, onAddItmToCart, onAddToFavorite, id, favorited = false, added }) {
+
+	const [isAdded, setAdded] = useState(added)
+	const [isFavorite, setIsFavorite] = useState(favorited)
+
+	function makeFavorite() {
+		onAddToFavorite({name, price, imgURL, id})
+		setIsFavorite(!isFavorite)
+	}
+
+	function addToCart() {
+		onAddItmToCart({ name, price, imgURL, id})
+		setAdded(!isAdded)
+	}
 
     return (
-        <div className={styles.card} key={id}>
+        <div className={styles.card}>
 			<div className={styles.container}>
 
                 {
                     isFavorite ? (
                         <div className={styles.favorite}>
-					    	<img width={26} height={24} src="../img/favor-active.svg" alt="favorActive" />
+					    	<img onClick={makeFavorite} width={26} height={24} src="../img/favor-active.svg" alt="favorActive" />
 				        </div>
                     ) : (
                         <div className={styles.favorite}>
-					    	<img width={26} height={24} src="../../img/favor-unactive.svg" alt="favorUnActive" />
+					    	<img onClick={makeFavorite} width={26} height={24} src="../../img/favor-unactive.svg" alt="favorUnActive" />
 				        </div>
                     )     
                 }
@@ -27,11 +42,12 @@ export default function Card({ name, price, imgURL, isFavorite, id }) {
 						<span className={styles.price}>Цена:</span>
 						<b>{price} руб.</b>
 					</div>
-					<button className={styles.buyBtn}>
-						<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M10.6653 5.13122H7.20214V1.66821C7.20214 0.332846 5.13114 0.332846 5.13114 1.66821V5.13122H1.668C0.332935 5.13122 0.332935 7.20215 1.668 7.20215H5.13114V10.6652C5.13114 12.0005 7.20214 12.0005 7.20214 10.6652V7.20215H10.6653C12.0005 7.20215 12.0005 5.13122 10.6653 5.13122Z" fill="#D3D3D3"/>
-						</svg>
-					</button>
+					<img 
+						className={styles.pointer} 
+						onClick={addToCart} 
+						src={isAdded ? "../../../img/btn-checked.svg" : "../../../img/btn-unchecked.svg"} 
+						alt={isAdded ? "btnChecked" : "btnUnChecked"}
+					/>
 				</div>
 			</div>
 		</div>

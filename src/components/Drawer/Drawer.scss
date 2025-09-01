@@ -1,3 +1,6 @@
+
+
+
 .drawer {
     position: absolute;
     left: 0;
@@ -52,6 +55,12 @@
     }
 }
 
+.drawer-empty {
+    .text {
+        text-align: center;
+    }
+}
+
 .greenbtn {
     position: relative;
     margin: 2% auto;
@@ -68,6 +77,10 @@
         .arrowRight {
             transform: translateX(5px);
         }
+
+        .arrowLeft {
+            transform: translateX(-5px);
+        }   
     }
 
     .arrowRight {
@@ -79,7 +92,9 @@
 
     .arrowLeft {
         position: absolute;
-        left: 50px;
+        top: 20px;
+        left: 30px;
+        transition: transform 0.2s ease-in-out;
     }
 }
 

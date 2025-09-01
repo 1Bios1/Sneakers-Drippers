@@ -23,3 +23,8 @@ body {
 .menu p {
   margin: 0;
 }
+
+.disabledMinus button:disabled,
+.disabledMinus button.disabled {
+  pointer-events: none;
+}

@@ -29,3 +29,9 @@ body {
     }
 }
 
+.disabledMinus {
+    button:disabled,
+    button.disabled {
+        pointer-events: none;
+    }
+}

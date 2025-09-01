@@ -1,5 +1,7 @@
 .card {
-  padding: 20px;
+  width: 230px;
+  padding: 10px;
+  align-items: center;
 }
 .card .container {
   width: 210px;
@@ -20,11 +22,7 @@
   position: absolute;
   cursor: pointer;
 }
-.card .buyBtn {
-  border: 1px solid rgba(126, 126, 126, 0.541);
-  border-radius: 8px;
-  width: 32px;
-  height: 32px;
+.card .pointer {
   cursor: pointer;
 }
 .card .name {

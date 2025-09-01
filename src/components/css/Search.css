@@ -1,4 +1,5 @@
 .search {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -8,6 +9,13 @@
 }
 .search input {
   border: 0;
+}
+.search .clear {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .search:hover {
